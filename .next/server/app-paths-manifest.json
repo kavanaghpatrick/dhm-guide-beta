@@ -1,0 +1,11 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/never-hungover/[slug]/page": "app/never-hungover/[slug]/page.js",
+  "/page": "app/page.js",
+  "/compare/page": "app/compare/page.js",
+  "/never-hungover/page": "app/never-hungover/page.js",
+  "/about/page": "app/about/page.js",
+  "/guide/page": "app/guide/page.js",
+  "/research/page": "app/research/page.js",
+  "/reviews/page": "app/reviews/page.js"
+}
