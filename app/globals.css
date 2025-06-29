@@ -1,3 +1,252 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles for enhanced blog lists */
+.counter-reset-list {
+  counter-reset: custom-counter;
+}
+
+.counter-increment-item {
+  counter-increment: custom-counter;
+}
+
+.counter-content::before {
+  content: counter(custom-counter);
+}
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 142.1 76.2% 36.3%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 14.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 14.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 142.1 70.6% 45.3%;
+    --primary-foreground: 144.9 80.4% 10%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 142.4 71.8% 29.2%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Touch Interaction Optimizations */
+
+/* Remove 300ms click delay on mobile devices */
+* {
+  touch-action: manipulation;
+}
+
+/* Optimize touch targets for better responsiveness */
+button, 
+a, 
+[role="button"], 
+[tabindex="0"],
+.clickable {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+/* Ensure minimum touch target size (44px recommended) */
+button,
+a {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove hover effects on touch devices to prevent sticky states */
+@media (hover: none) and (pointer: coarse) {
+  button:hover,
+  a:hover,
+  [role="button"]:hover {
+    background-color: initial;
+    color: initial;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Improve touch feedback with active states */
+button:active,
+a:active,
+[role="button"]:active {
+  transform: scale(0.98);
+  transition: transform 0.1s ease;
+}
+
+/* Optimize scrolling performance */
+html {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Prevent text selection during touch interactions */
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Fast click implementation for immediate response */
+.fast-click {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Blog-specific touch optimizations */
+.blog-link,
+.article-link,
+.filter-tag {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(59, 130, 246, 0.1);
+  transition: all 0.15s ease;
+}
+
+.blog-link:active,
+.article-link:active,
+.filter-tag:active {
+  transform: scale(0.97);
+  opacity: 0.8;
+}
+
+/* Ensure proper touch handling for navigation */
+nav a,
+.nav-link {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(34, 197, 94, 0.1);
+}
+
+/* Fix for iOS Safari touch delay */
+@supports (-webkit-touch-callout: none) {
+  button,
+  a,
+  [role="button"] {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+  }
+}
+
+/* Enhanced Typography for Blog Posts */
+.enhanced-typography {
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.enhanced-typography h1,
+.enhanced-typography h2,
+.enhanced-typography h3 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  letter-spacing: -0.02em;
+}
+
+.enhanced-typography p {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  line-height: 1.8;
+  text-align: justify;
+  word-spacing: 0.1em;
+}
+
+.enhanced-typography blockquote {
+  font-style: italic;
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-typography blockquote::before {
+  content: '"';
+  font-size: 4rem;
+  color: #16a34a;
+  opacity: 0.2;
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  font-family: 'Georgia', serif;
+  line-height: 1;
+}
+
+/* Code styling */
+.enhanced-typography pre {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+.enhanced-typography code {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* Custom component styles */
+.prose {
+  max-width: 65ch;
+}
+
+.prose a {
+  color: #16a34a;
+  text-decoration: underline;
+}
+
+.prose a:hover {
+  color: #15803d;
+}
