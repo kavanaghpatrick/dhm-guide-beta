@@ -362,7 +362,7 @@ export default function HomePage() {
               >
                 <div className="relative">
                   <Image 
-                    src="/images/02_liver_protection_infographic.webp" 
+                    src="/dhm-liver-protection-mechanism.png" 
                     alt="DHM Liver Protection Mechanism - Shows how DHM enhances alcohol metabolism through ADH and ALDH enzymes"
                     width={1536}
                     height={1024}
@@ -386,7 +386,7 @@ export default function HomePage() {
               >
                 <div className="relative">
                   <Image 
-                    src="/images/04_gaba_receptor_mechanism.webp" 
+                    src="/dhm-gaba-protection.png" 
                     alt="DHM GABA Receptor Mechanism - Shows how DHM restores normal brain function by protecting GABA receptors"
                     width={1536}
                     height={1024}
@@ -515,7 +515,7 @@ export default function HomePage() {
         >
           <div className="relative w-full h-[130%]">
             <Image
-              src="/images/05_traditional_heritage.webp"
+              src="/dhm-japanese-raisin-tree-hero.png"
               alt="Traditional DHM Heritage Background"
               fill
               className="object-cover"
